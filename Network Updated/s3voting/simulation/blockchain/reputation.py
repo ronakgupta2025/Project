@@ -6,8 +6,6 @@ from numpy import tanh
 import logging
 from typing import Dict, List, Tuple, Set
 import time
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 logger = logging.getLogger(__name__)
 
@@ -21,13 +19,6 @@ class ReputationSystem:
             contamination=contamination,
             random_state=42
         )
-        self.scaler = StandardScaler()
-        self.attack_patterns = {
-            "on_off": [],
-            "gradual": [],
-            "burst": [],
-            "adaptive": []
-        }
         
     def initialize_node(self, node_id: str):
         """Initialize a new node with default reputation"""
@@ -64,77 +55,48 @@ class ReputationSystem:
             "penalties": sum(penalties)
         }
         
-    def update_reputations(self, behavior_data: Dict[str, Dict]):
-        """Update reputations based on behavior data"""
-        for node_id, behavior in behavior_data.items():
-            if node_id not in self.behavior_history:
-                self.initialize_node(node_id)
-                
-            # Record behavior
-            self.behavior_history[node_id].append(behavior)
+    def update_reputations(self, behavior_data: List[Dict]):
+        """Update reputation scores based on behavior data"""
+        if not behavior_data:
+            return
             
-            # Keep only last 100 behaviors
-            if len(self.behavior_history[node_id]) > 100:
-                self.behavior_history[node_id] = self.behavior_history[node_id][-100:]
-                
-            # Detect anomalies using Isolation Forest
-            if len(self.behavior_history[node_id]) >= 10:
-                features = self._extract_features(node_id)
-                if features is not None:
-                    anomaly_score = self._detect_anomalies(features)
-                    self._update_reputation(node_id, behavior, anomaly_score)
-                    
-                    # Record attack patterns
-                    if behavior.get("attack_type") != "honest":
-                        self.attack_patterns[behavior["attack_type"]].append({
-                            "node_id": node_id,
-                            "time": len(self.behavior_history[node_id]),
-                            "anomaly_score": anomaly_score,
-                            "reputation": self.reputations[node_id]
-                        })
-    
-    def _extract_features(self, node_id: str) -> np.ndarray:
-        """Extract features from behavior history for anomaly detection"""
-        history = self.behavior_history[node_id]
-        if len(history) < 10:
-            return None
-            
+        # Extract features for anomaly detection
         features = []
-        for behavior in history[-10:]:
+        node_ids = []
+        for data in behavior_data:
             features.append([
-                behavior["block_delay"],
-                behavior["voting_mismatch"],
-                behavior["penalties"]
+                data["block_delay"],
+                data["voting_mismatch"],
+                data["penalties"]
             ])
-        return np.array(features)
-    
-    def _detect_anomalies(self, features: np.ndarray) -> float:
-        """Detect anomalies using Isolation Forest"""
-        features_scaled = self.scaler.fit_transform(features)
-        return -self.isolation_forest.fit_predict(features_scaled).mean()
-    
-    def _update_reputation(self, node_id: str, behavior: Dict, anomaly_score: float):
-        """Update node reputation based on behavior and anomaly score"""
-        current_rep = self.reputations[node_id]
-        
-        # Calculate reputation change
-        delay_penalty = max(0, (behavior["block_delay"] - 2.0) / 10.0)
-        mismatch_penalty = behavior["voting_mismatch"]
-        penalty_factor = behavior["penalties"] * 0.1
-        anomaly_penalty = max(0, anomaly_score)
-        
-        total_penalty = (delay_penalty + mismatch_penalty + penalty_factor + anomaly_penalty) / 4
-        new_rep = max(0.1, current_rep - total_penalty)
-        
-        # Gradual recovery for honest behavior
-        if not behavior["is_attack_phase"]:
-            new_rep = min(1.0, new_rep + 0.05)
+            node_ids.append(data["node_id"])
             
-        self.reputations[node_id] = new_rep
-        logger.info(f"Node {node_id} reputation updated: {current_rep:.3f} -> {new_rep:.3f}")
-    
+        # Convert to numpy array
+        X = np.array(features)
+        
+        # Fit and predict anomalies
+        try:
+            self.isolation_forest.fit(X)
+            anomaly_scores = self.isolation_forest.score_samples(X)
+            
+            # Update reputations based on anomaly scores
+            for i, node_id in enumerate(node_ids):
+                # Normalize anomaly score to [0, 1] range
+                normalized_score = (anomaly_scores[i] - anomaly_scores.min()) / (anomaly_scores.max() - anomaly_scores.min())
+                
+                # Update reputation with exponential moving average
+                current_rep = self.reputations.get(node_id, 1.0)
+                new_rep = 0.7 * current_rep + 0.3 * normalized_score
+                self.reputations[node_id] = max(0.0, min(1.0, new_rep))
+                
+                # Log reputation changes
+                logger.info(f"Node {node_id} reputation updated: {current_rep:.3f} -> {new_rep:.3f}")
+                
+        except Exception as e:
+            logger.error(f"Error updating reputations: {str(e)}")
+            
     def get_reputation(self, node_id: str) -> float:
-        """Get current reputation of a node"""
+        """Get the current reputation score for a node"""
         return self.reputations.get(node_id, 1.0)
         
     def get_mean_reputation(self) -> float:
@@ -144,12 +106,11 @@ class ReputationSystem:
         return sum(self.reputations.values()) / len(self.reputations)
         
     def get_trusted_nodes(self) -> Set[str]:
-        """Get set of trusted nodes"""
-        return {node_id for node_id, rep in self.reputations.items() 
-                if rep >= self.trust_threshold}
+        """Get the set of trusted nodes based on reputation threshold"""
+        return {node_id for node_id, rep in self.reputations.items() if rep >= self.trust_threshold}
         
     def is_trusted(self, node_id: str) -> bool:
-        """Check if a node is trusted based on reputation"""
+        """Check if a node is trusted based on its reputation"""
         return self.get_reputation(node_id) >= self.trust_threshold
         
     def get_reputation_stats(self) -> Dict:
@@ -165,50 +126,4 @@ class ReputationSystem:
             "max_reputation": np.max(reputations),
             "trusted_nodes": len(self.get_trusted_nodes()),
             "total_nodes": len(self.reputations)
-        }
-        
-    def plot_attack_patterns(self, output_file: str = "attack_patterns.png"):
-        """Plot attack patterns and their detection"""
-        plt.figure(figsize=(15, 10))
-        
-        # Plot reputation evolution for each attack type
-        for attack_type, patterns in self.attack_patterns.items():
-            if patterns:
-                df = pd.DataFrame(patterns)
-                plt.subplot(2, 2, list(self.attack_patterns.keys()).index(attack_type) + 1)
-                plt.plot(df["time"], df["reputation"], label="Reputation")
-                plt.plot(df["time"], df["anomaly_score"], label="Anomaly Score")
-                plt.title(f"{attack_type.capitalize()} Attack Pattern")
-                plt.xlabel("Time")
-                plt.ylabel("Score")
-                plt.legend()
-                plt.grid(True)
-        
-        plt.tight_layout()
-        plt.savefig(output_file)
-        plt.close()
-        
-    def save_behavior_metrics(self, output_file: str = "behavior_metrics.txt"):
-        """Save detailed behavior metrics to file"""
-        with open(output_file, "w") as f:
-            f.write("Node Behavior Metrics\n")
-            f.write("===================\n\n")
-            
-            for node_id, history in self.behavior_history.items():
-                f.write(f"\nNode {node_id}:\n")
-                f.write("-" * 50 + "\n")
-                
-                # Calculate statistics
-                delays = [b["block_delay"] for b in history]
-                mismatches = [b["voting_mismatch"] for b in history]
-                penalties = [b["penalties"] for b in history]
-                attack_types = [b.get("attack_type", "honest") for b in history]
-                
-                f.write(f"Current Reputation: {self.reputations[node_id]:.3f}\n")
-                f.write(f"Trusted: {self.is_trusted(node_id)}\n")
-                f.write(f"Attack Types: {', '.join(set(attack_types))}\n")
-                f.write(f"Average Block Delay: {np.mean(delays):.2f}\n")
-                f.write(f"Average Voting Mismatch: {np.mean(mismatches):.2f}\n")
-                f.write(f"Total Penalties: {sum(penalties)}\n")
-                f.write(f"Number of Behaviors: {len(history)}\n")
-                f.write("\n") 
+        } 

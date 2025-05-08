@@ -36,7 +36,7 @@ class Block:
         return hashlib.sha256(block_string.encode()).hexdigest()
 
 class BlockchainNode:
-    def __init__(self, node_id: str, shard_id: int, host: str = "127.0.0.1", port: int = 5000, is_malicious: bool = False, reputation_system = None):
+    def __init__(self, node_id: str, shard_id: int, host: str = "127.0.0.1", port: int = 5000, is_malicious: bool = False):
         self.node_id = node_id
         self.shard_id = shard_id
         self.host = host
@@ -46,11 +46,8 @@ class BlockchainNode:
         self.peers: Dict[str, tuple] = {}  # node_id -> (host, port)
         self.is_running = False
         self.is_malicious = is_malicious
-        self.reputation_system = reputation_system
         self.last_block_time = time.time()
         self.voting_history: List[Dict] = []
-        self.stop_event = asyncio.Event()
-        self.start_time = time.time()
         self._create_genesis_block()
 
     def _create_genesis_block(self):
@@ -71,7 +68,6 @@ class BlockchainNode:
 
     async def stop(self):
         """Stop the node"""
-        self.stop_event.set()
         self.is_running = False
         logger.info(f"Node {self.node_id} stopped")
 
@@ -82,85 +78,39 @@ class BlockchainNode:
             logger.info(f"Node {self.node_id} added peer {node_id}")
 
     def _simulate_malicious_behavior(self) -> Dict:
-        """Simulate malicious behavior for malicious nodes with various attack patterns"""
+        """Simulate malicious behavior for malicious nodes with on-off attack pattern"""
         if not self.is_malicious:
             return {
                 "block_delay": np.random.normal(2.0, 0.5),
                 "voting_mismatch": random.uniform(0.0, 0.1),
                 "penalties": np.random.poisson(0.1),
-                "is_attack_phase": False,
-                "attack_type": "honest"
+                "is_attack_phase": False
             }
             
+        # Simulate on-off attack pattern with longer cycles
         current_time = time.time()
+        cycle_duration = 30  # 30 seconds per cycle
+        attack_duration = 10  # 10 seconds of attack
         
-        # Attack pattern selection based on node ID
-        if self.node_id == "node_1":
-            # On-off attack pattern
-            cycle_duration = 30
-            attack_duration = 10
-            cycle_position = current_time % cycle_duration
-            is_attack_phase = cycle_position < attack_duration
-            
-            if is_attack_phase:
-                return {
-                    "block_delay": np.random.normal(15.0, 2.0),
-                    "voting_mismatch": random.uniform(0.7, 0.9),
-                    "penalties": np.random.poisson(2),
-                    "is_attack_phase": True,
-                    "attack_type": "on_off"
-                }
-                
-        elif self.node_id == "node_2":
-            # Gradual degradation attack
-            degradation_factor = min(1.0, (current_time - self.start_time) / 300)  # 5 minutes
+        cycle_position = current_time % cycle_duration
+        is_attack_phase = cycle_position < attack_duration
+        
+        if is_attack_phase:
+            logger.info(f"Node {self.node_id} entering attack phase")
             return {
-                "block_delay": np.random.normal(2.0 + degradation_factor * 10, 0.5),
-                "voting_mismatch": random.uniform(0.1, 0.1 + degradation_factor * 0.8),
-                "penalties": np.random.poisson(0.1 + degradation_factor),
-                "is_attack_phase": True,
-                "attack_type": "gradual"
+                "block_delay": np.random.normal(10.0, 3.0),
+                "voting_mismatch": random.uniform(0.3, 0.8),
+                "penalties": np.random.poisson(2.0),
+                "is_attack_phase": True
             }
-            
-        elif self.node_id == "node_3":
-            # Random burst attack
-            if random.random() < 0.1:  # 10% chance of burst
-                return {
-                    "block_delay": np.random.normal(20.0, 5.0),
-                    "voting_mismatch": random.uniform(0.8, 1.0),
-                    "penalties": np.random.poisson(5),
-                    "is_attack_phase": True,
-                    "attack_type": "burst"
-                }
-                
-        elif self.node_id == "node_4":
-            # Adaptive attack - changes behavior based on reputation
-            current_rep = self.reputation_system.get_reputation(self.node_id)
-            if current_rep > 0.7:
-                return {
-                    "block_delay": np.random.normal(20.0, 5.0),
-                    "voting_mismatch": random.uniform(0.8, 1.0),
-                    "penalties": np.random.poisson(5),
-                    "is_attack_phase": True,
-                    "attack_type": "adaptive"
-                }
-            else:
-                return {
-                    "block_delay": np.random.normal(2.0, 0.5),
-                    "voting_mismatch": random.uniform(0.0, 0.1),
-                    "penalties": np.random.poisson(0.1),
-                    "is_attack_phase": False,
-                    "attack_type": "adaptive"
-                }
-                
-        # Default honest behavior
-        return {
-            "block_delay": np.random.normal(2.0, 0.5),
-            "voting_mismatch": random.uniform(0.0, 0.1),
-            "penalties": np.random.poisson(0.1),
-            "is_attack_phase": False,
-            "attack_type": "honest"
-        }
+        else:
+            logger.info(f"Node {self.node_id} in honest phase")
+            return {
+                "block_delay": np.random.normal(2.0, 0.5),
+                "voting_mismatch": random.uniform(0.0, 0.1),
+                "penalties": np.random.poisson(0.1),
+                "is_attack_phase": False
+            }
 
     async def add_transaction(self, transaction: Dict):
         """Add a transaction to the pending transactions"""
@@ -226,25 +176,4 @@ class BlockchainNode:
             "pending_transactions": len(self.pending_transactions),
             "peers": len(self.peers),
             "is_malicious": self.is_malicious
-        }
-
-    def get_current_behavior(self) -> Dict:
-        """Get current behavior metrics"""
-        behavior = self._simulate_malicious_behavior()
-        behavior["node_id"] = self.node_id
-        return behavior
-        
-    async def start_mining(self):
-        """Start the mining process"""
-        self.is_running = True
-        while not self.stop_event.is_set():
-            try:
-                # Mine a new block
-                if self.pending_transactions:
-                    behavior = self._simulate_malicious_behavior()
-                    await asyncio.sleep(behavior["block_delay"])
-                    await self.mine_block()
-                await asyncio.sleep(1)
-            except Exception as e:
-                logger.error(f"Mining error in node {self.node_id}: {str(e)}")
-                await asyncio.sleep(1) 
+        } 

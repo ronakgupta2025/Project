@@ -58,7 +58,6 @@ class Simulation:
         # Generate more transactions
         num_voters = 100  # Increased from 30
         for i in range(1, num_voters + 1):
-            logger.info(f"\nVoting Iteration {i}/{num_voters}")
             voter_id = f"voter_{i}"
             candidate_id = f"candidate_{random.randint(1, 3)}"
             shard_id = random.randint(0, 4)
@@ -88,14 +87,7 @@ class Simulation:
 
     async def mine_blocks(self):
         """Mine blocks for all nodes"""
-        iteration = 0
-        start_time = time.time()
         while not self.stop_event.is_set():
-            if time.time() - start_time >= 60:  # Stop after 60 seconds
-                self.stop_event.set()
-                break
-            iteration += 1
-            logger.info(f"\nMining Iteration {iteration}")
             for node in self.nodes:
                 if node.pending_transactions:
                     await node.mine_block()
@@ -105,90 +97,84 @@ class Simulation:
             await asyncio.sleep(1)
 
     async def update_reputation(self):
-        """Periodically update reputation scores"""
-        iteration = 0
-        start_time = time.time()
-        while True:
-            try:
-                if time.time() - start_time >= 60:  # Stop after 60 seconds
-                    break
-                iteration += 1
-                logger.info(f"\nReputation Update Iteration {iteration}")
-                # Collect behavior data from all nodes
-                behavior_data = {}
-                for node in self.nodes:
-                    behavior = node.get_current_behavior()
-                    if behavior:
-                        behavior_data[node.node_id] = behavior
-                
-                # Update reputations
-                self.reputation_system.update_reputations(behavior_data)
-                
-                # Log trusted nodes
-                trusted_nodes = self.reputation_system.get_trusted_nodes()
-                logger.info(f"Trusted nodes: {trusted_nodes}")
-                
-                await asyncio.sleep(5)  # Update every 5 seconds
-                
-            except asyncio.CancelledError:
-                break
-            except Exception as e:
-                logger.error(f"Error updating reputation: {str(e)}")
-                await asyncio.sleep(5)
+        """Update reputation scores and log statistics"""
+        # Collect behavior data from all nodes
+        behavior_data = []
+        for node in self.nodes:
+            behavior = node._simulate_malicious_behavior()
+            behavior_data.append({
+                "node_id": node.node_id,
+                "block_delay": behavior["block_delay"],
+                "voting_mismatch": behavior["voting_mismatch"],
+                "penalties": behavior["penalties"],
+                "is_attack_phase": behavior.get("is_attack_phase", False)
+            })
+            
+        # Update reputation scores
+        self.reputation_system.update_reputations(behavior_data)
+        
+        # Log reputation statistics
+        logger.info("\nReputation Statistics:")
+        mean_rep = self.reputation_system.get_mean_reputation()
+        trusted_nodes = self.reputation_system.get_trusted_nodes()
+        logger.info(f"Mean Reputation: {mean_rep:.3f}")
+        logger.info(f"Trusted Nodes: {len(trusted_nodes)}/{len(self.nodes)}")
+        
+        # Log detailed node states
+        logger.info("\nDetailed Node States:")
+        for node in self.nodes:
+            rep = self.reputation_system.get_reputation(node.node_id)
+            is_trusted = node.node_id in trusted_nodes
+            behavior = node._simulate_malicious_behavior()
+            logger.info(f"Node {node.node_id}:")
+            logger.info(f"  Reputation: {rep:.3f}")
+            logger.info(f"  Is Trusted: {is_trusted}")
+            logger.info(f"  Attack Phase: {behavior.get('is_attack_phase', False)}")
+            logger.info(f"  Block Delay: {behavior['block_delay']:.2f}")
+            logger.info(f"  Voting Mismatch: {behavior['voting_mismatch']:.2f}")
+            logger.info(f"  Penalties: {behavior['penalties']}")
 
     async def run(self):
-        """Run the simulation"""
-        logger.info("Starting blockchain simulation...")
-        logger.info(f"Total simulation duration: 60 seconds")
-        logger.info(f"Expected iterations:")
-        logger.info(f"- Voting: 100 iterations")
-        logger.info(f"- Mining: ~60 iterations")
-        logger.info(f"- Reputation updates: ~12 iterations")
-        
-        # Create nodes
-        self.nodes = []
-        for i in range(10):
-            is_malicious = i < 4  # First 4 nodes are malicious
-            node = BlockchainNode(
-                node_id=f"node_{i}",
-                shard_id=i % 5,
-                is_malicious=is_malicious,
-                reputation_system=self.reputation_system
-            )
-            self.nodes.append(node)
+        """Run the complete simulation"""
+        try:
+            # Setup and start nodes
+            logger.info("Setting up nodes...")
+            await self.setup_nodes()
             
-        # Start mining process
-        mining_tasks = [asyncio.create_task(node.start_mining()) for node in self.nodes]
-        
-        # Start reputation updates
-        reputation_task = asyncio.create_task(self.update_reputation())
-        
-        # Simulate voting
-        await self.simulate_voting()
-        
-        # Set stop event after 60 seconds
-        await asyncio.sleep(60)
-        self.stop_event.set()
-        
-        # Stop all nodes
-        for node in self.nodes:
-            await node.stop()
+            # Connect peers within shards
+            logger.info("Connecting peers...")
+            await self.connect_peers()
             
-        # Cancel reputation updates and mining tasks
-        reputation_task.cancel()
-        for task in mining_tasks:
-            task.cancel()
+            # Start mining process
+            mining_task = asyncio.create_task(self.mine_blocks())
             
-        # Wait for all tasks to complete
-        await asyncio.gather(*mining_tasks, return_exceptions=True)
-        await asyncio.gather(reputation_task, return_exceptions=True)
-        
-        # Save results
-        self.reputation_system.plot_attack_patterns("simulation_results/attack_patterns.png")
-        self.reputation_system.save_behavior_metrics("simulation_results/behavior_metrics.txt")
-        
-        # Print final state
-        self.print_blockchain_state()
+            # Start reputation updates
+            reputation_task = asyncio.create_task(self.update_reputation())
+            
+            # Simulate voting
+            await self.simulate_voting()
+            
+            # Wait for some time to process votes
+            await asyncio.sleep(10)
+            
+            # Stop mining and reputation updates
+            self.stop_event.set()
+            await mining_task
+            await reputation_task
+            
+            # Print final state
+            self.print_final_state()
+            
+            # Plot results
+            self.plot_results()
+            
+        except Exception as e:
+            logger.error(f"Simulation failed: {e}")
+            raise
+        finally:
+            # Stop all nodes
+            for node in self.nodes:
+                await node.stop()
 
     def print_final_state(self):
         """Print the final state of the simulation"""
@@ -241,20 +227,6 @@ class Simulation:
         plt.tight_layout()
         plt.savefig('simulation_results.png')
         plt.close()
-
-    def print_blockchain_state(self):
-        """Print the final state of the blockchain"""
-        logger.info("\n=== Final Blockchain State ===")
-        
-        # Print blockchain state for each node
-        logger.info("\nBlockchain State:")
-        for node in self.nodes:
-            state = node.get_chain_state()
-            logger.info(f"\nNode {state['node_id']} (Shard {state['shard_id']}):")
-            logger.info(f"  Chain length: {state['chain_length']}")
-            logger.info(f"  Pending transactions: {state['pending_transactions']}")
-            logger.info(f"  Number of peers: {state['peers']}")
-            logger.info(f"  Is malicious: {state['is_malicious']}")
 
 async def main():
     """Main entry point"""
