@@ -1,0 +1,1651 @@
+INFO:__main__:Setting up nodes...
+INFO:blockchain.shard:Assigned node node_0 to shard 4
+INFO:blockchain.node:Node node_0 started on 127.0.0.1:5000 (Shard 4)
+INFO:blockchain.shard:Assigned node node_1 to shard 3
+INFO:blockchain.node:Node node_1 started on 127.0.0.1:5001 (Shard 3)
+INFO:blockchain.shard:Assigned node node_2 to shard 1
+INFO:blockchain.node:Node node_2 started on 127.0.0.1:5002 (Shard 1)
+INFO:blockchain.shard:Assigned node node_3 to shard 1
+INFO:blockchain.node:Node node_3 started on 127.0.0.1:5003 (Shard 1)
+INFO:blockchain.shard:Assigned node node_4 to shard 4
+INFO:blockchain.node:Node node_4 started on 127.0.0.1:5004 (Shard 4)
+INFO:blockchain.shard:Assigned node node_5 to shard 0
+INFO:blockchain.node:Node node_5 started on 127.0.0.1:5005 (Shard 0)
+INFO:blockchain.shard:Assigned node node_6 to shard 0
+INFO:blockchain.node:Node node_6 started on 127.0.0.1:5006 (Shard 0)
+INFO:blockchain.shard:Assigned node node_7 to shard 4
+INFO:blockchain.node:Node node_7 started on 127.0.0.1:5007 (Shard 4)
+INFO:blockchain.shard:Assigned node node_8 to shard 4
+INFO:blockchain.node:Node node_8 started on 127.0.0.1:5008 (Shard 4)
+INFO:blockchain.shard:Assigned node node_9 to shard 3
+INFO:blockchain.node:Node node_9 started on 127.0.0.1:5009 (Shard 3)
+INFO:__main__:Connecting peers...
+INFO:blockchain.node:Node node_0 added peer node_4
+INFO:blockchain.node:Node node_0 added peer node_7
+INFO:blockchain.node:Node node_0 added peer node_8
+INFO:blockchain.node:Node node_1 added peer node_9
+INFO:blockchain.node:Node node_2 added peer node_3
+INFO:blockchain.node:Node node_3 added peer node_2
+INFO:blockchain.node:Node node_4 added peer node_0
+INFO:blockchain.node:Node node_4 added peer node_7
+INFO:blockchain.node:Node node_4 added peer node_8
+INFO:blockchain.node:Node node_5 added peer node_6
+INFO:blockchain.node:Node node_6 added peer node_5
+INFO:blockchain.node:Node node_7 added peer node_0
+INFO:blockchain.node:Node node_7 added peer node_4
+INFO:blockchain.node:Node node_7 added peer node_8
+INFO:blockchain.node:Node node_8 added peer node_0
+INFO:blockchain.node:Node node_8 added peer node_4
+INFO:blockchain.node:Node node_8 added peer node_7
+INFO:blockchain.node:Node node_9 added peer node_1
+INFO:__main__:
+=== Starting Voting Simulation ===
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_1', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_1', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_1 for candidate_2 (Shard 3)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 1
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_9 mined block 1
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 1.000 -> 0.875
+INFO:blockchain.reputation:Node node_1 reputation updated: 1.000 -> 0.970
+INFO:blockchain.reputation:Node node_2 reputation updated: 1.000 -> 0.950
+INFO:blockchain.reputation:Node node_3 reputation updated: 1.000 -> 0.840
+INFO:blockchain.reputation:Node node_4 reputation updated: 1.000 -> 1.000
+INFO:blockchain.reputation:Node node_5 reputation updated: 1.000 -> 0.700
+INFO:blockchain.reputation:Node node_6 reputation updated: 1.000 -> 0.875
+INFO:blockchain.reputation:Node node_7 reputation updated: 1.000 -> 0.946
+INFO:blockchain.reputation:Node node_8 reputation updated: 1.000 -> 0.896
+INFO:blockchain.reputation:Node node_9 reputation updated: 1.000 -> 0.814
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.887
+INFO:__main__:Trusted Nodes: 10/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.875
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.79
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.970
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.33
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.950
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.01
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.840
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.36
+INFO:__main__:  Voting Mismatch: 0.00
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 1.000
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.67
+INFO:__main__:  Voting Mismatch: 0.05
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.700
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.71
+INFO:__main__:  Voting Mismatch: 0.00
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.875
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.75
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.946
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.54
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.896
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.23
+INFO:__main__:  Voting Mismatch: 0.00
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.814
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.22
+INFO:__main__:  Voting Mismatch: 0.05
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_2', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_2', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_2', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_2', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_2 for candidate_1 (Shard 4)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_3', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_3', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_3 for candidate_3 (Shard 0)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_4', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_4', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_4 for candidate_3 (Shard 1)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_5', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_5', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_5', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_5', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_5 for candidate_1 (Shard 4)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_6', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_6', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_6', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_6', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_6 for candidate_1 (Shard 4)
+INFO:__main__:Vote cast by voter_7 for candidate_1 (Shard 2)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_8', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_8', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_8', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_8', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_8 for candidate_2 (Shard 4)
+INFO:__main__:Vote cast by voter_9 for candidate_3 (Shard 2)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_10', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_10', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_10 for candidate_2 (Shard 0)
+INFO:blockchain.node:Node node_0 mined block 1
+INFO:blockchain.node:Node node_2 entering attack phase
+INFO:blockchain.node:Node node_1 entering attack phase
+INFO:blockchain.node:Node node_2 entering attack phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.875 -> 0.882
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.970 -> 0.679
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.950 -> 0.721
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.840 -> 0.888
+INFO:blockchain.reputation:Node node_4 reputation updated: 1.000 -> 0.938
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.700 -> 0.784
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.875 -> 0.901
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.946 -> 0.901
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.896 -> 0.901
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.814 -> 0.794
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.839
+INFO:__main__:Trusted Nodes: 9/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.882
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.51
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 entering attack phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.679
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: True
+INFO:__main__:  Block Delay: 15.80
+INFO:__main__:  Voting Mismatch: 0.76
+INFO:__main__:  Penalties: 1
+INFO:blockchain.node:Node node_2 entering attack phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.721
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: True
+INFO:__main__:  Block Delay: 6.06
+INFO:__main__:  Voting Mismatch: 0.31
+INFO:__main__:  Penalties: 2
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.888
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.35
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.938
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.75
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.784
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.79
+INFO:__main__:  Voting Mismatch: 0.10
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.901
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.08
+INFO:__main__:  Voting Mismatch: 0.05
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.901
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.64
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.901
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.90
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.794
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.39
+INFO:__main__:  Voting Mismatch: 0.09
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 10 votes...
+INFO:blockchain.node:Node node_1 entering attack phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_11', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_11', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_11 for candidate_1 (Shard 3)
+INFO:__main__:Vote cast by voter_12 for candidate_1 (Shard 2)
+INFO:__main__:Vote cast by voter_13 for candidate_3 (Shard 2)
+INFO:__main__:Vote cast by voter_14 for candidate_2 (Shard 2)
+INFO:blockchain.node:Node node_2 entering attack phase
+INFO:blockchain.node:Node node_2 mined block 1
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 1
+INFO:blockchain.node:Node node_4 mined block 1
+INFO:blockchain.node:Node node_5 mined block 1
+INFO:blockchain.node:Node node_6 mined block 1
+INFO:blockchain.node:Node node_7 mined block 1
+INFO:blockchain.node:Node node_8 mined block 1
+INFO:blockchain.node:Node node_9 mined block 2
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 2
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_15', 'candidate_id': 'candidate_2', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_15', 'candidate_id': 'candidate_2', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_15 for candidate_1 (Shard 1)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_16', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_16', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_16 for candidate_3 (Shard 0)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 mined block 2
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 2
+INFO:blockchain.node:Node node_5 mined block 2
+INFO:blockchain.node:Node node_6 mined block 2
+INFO:__main__:Vote cast by voter_17 for candidate_2 (Shard 2)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_18', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_18', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_18 for candidate_1 (Shard 1)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_19', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_19', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_19 for candidate_2 (Shard 0)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_20', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_20', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_20', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_20', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_20 for candidate_1 (Shard 4)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.882 -> 0.836
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.679 -> 0.771
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.721 -> 0.744
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.888 -> 0.843
+INFO:blockchain.reputation:Node node_4 reputation updated: 0.938 -> 0.839
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.784 -> 0.549
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.901 -> 0.773
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.901 -> 0.931
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.901 -> 0.870
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.794 -> 0.720
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.788
+INFO:__main__:Trusted Nodes: 9/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.836
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.29
+INFO:__main__:  Voting Mismatch: 0.09
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.771
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.89
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.744
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.74
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.843
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.31
+INFO:__main__:  Voting Mismatch: 0.04
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.839
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.27
+INFO:__main__:  Voting Mismatch: 0.04
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.549
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.35
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.773
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.20
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.931
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.07
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.870
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.94
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.720
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.21
+INFO:__main__:  Voting Mismatch: 0.05
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 20 votes...
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_21', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_21', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_21 for candidate_3 (Shard 0)
+INFO:__main__:Vote cast by voter_22 for candidate_1 (Shard 2)
+INFO:__main__:Vote cast by voter_23 for candidate_1 (Shard 2)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_24', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_24', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_24 for candidate_2 (Shard 3)
+INFO:__main__:Vote cast by voter_25 for candidate_1 (Shard 2)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_26', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_26', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_26', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_26', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_26 for candidate_2 (Shard 4)
+INFO:blockchain.node:Node node_0 mined block 2
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 3
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 mined block 3
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 3
+INFO:blockchain.node:Node node_4 mined block 2
+INFO:blockchain.node:Node node_5 mined block 3
+INFO:blockchain.node:Node node_6 mined block 3
+INFO:blockchain.node:Node node_7 mined block 2
+INFO:blockchain.node:Node node_8 mined block 2
+INFO:blockchain.node:Node node_9 mined block 3
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_27', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_27', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_27 for candidate_3 (Shard 3)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_28', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_28', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_28 for candidate_3 (Shard 1)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_29', 'candidate_id': 'candidate_2', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_29', 'candidate_id': 'candidate_2', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_29 for candidate_2 (Shard 1)
+INFO:__main__:Vote cast by voter_30 for candidate_3 (Shard 2)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.836 -> 0.827
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.771 -> 0.560
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.744 -> 0.743
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.843 -> 0.771
+INFO:blockchain.reputation:Node node_4 reputation updated: 0.839 -> 0.732
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.549 -> 0.384
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.773 -> 0.611
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.931 -> 0.682
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.870 -> 0.909
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.720 -> 0.653
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.687
+INFO:__main__:Trusted Nodes: 5/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.827
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.41
+INFO:__main__:  Voting Mismatch: 0.04
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.560
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.87
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.743
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.03
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 1
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.771
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.80
+INFO:__main__:  Voting Mismatch: 0.09
+INFO:__main__:  Penalties: 1
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.732
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.12
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.384
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.18
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.611
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.56
+INFO:__main__:  Voting Mismatch: 0.00
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.682
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.02
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.909
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.51
+INFO:__main__:  Voting Mismatch: 0.09
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.653
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.19
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 30 votes...
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_31', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_31', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_31', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_31', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_31 for candidate_3 (Shard 4)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_32', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_32', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_32', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_32', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_32 for candidate_2 (Shard 4)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_33', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_33', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_33', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_33', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_33 for candidate_3 (Shard 4)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_34', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_34', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_34 for candidate_1 (Shard 1)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_35', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_35', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_35', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_35', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_35 for candidate_1 (Shard 4)
+INFO:blockchain.node:Node node_0 mined block 3
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 4
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 mined block 4
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 4
+INFO:blockchain.node:Node node_4 mined block 3
+INFO:blockchain.node:Node node_7 mined block 3
+INFO:blockchain.node:Node node_8 mined block 3
+INFO:blockchain.node:Node node_9 mined block 4
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_36', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_36', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_36 for candidate_1 (Shard 3)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_37', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_37', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_37', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_37', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_37 for candidate_1 (Shard 4)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_38', 'candidate_id': 'candidate_1', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_38', 'candidate_id': 'candidate_1', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_38 for candidate_1 (Shard 0)
+INFO:__main__:Vote cast by voter_39 for candidate_2 (Shard 2)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_40', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_40', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_40 for candidate_1 (Shard 3)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.827 -> 0.786
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.560 -> 0.645
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.743 -> 0.558
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.771 -> 0.601
+INFO:blockchain.reputation:Node node_4 reputation updated: 0.732 -> 0.513
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.384 -> 0.551
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.611 -> 0.690
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.682 -> 0.478
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.909 -> 0.936
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.653 -> 0.597
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.635
+INFO:__main__:Trusted Nodes: 2/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.786
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.17
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.645
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.00
+INFO:__main__:  Voting Mismatch: 0.04
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.558
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.31
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.601
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 0.95
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.513
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.40
+INFO:__main__:  Voting Mismatch: 0.00
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.551
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.19
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.690
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.95
+INFO:__main__:  Voting Mismatch: 0.09
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.478
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.40
+INFO:__main__:  Voting Mismatch: 0.00
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.936
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.48
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.597
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.30
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 40 votes...
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_41', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_41', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_41', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_41', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_41 for candidate_2 (Shard 4)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_42', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_42', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_42', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_42', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_42 for candidate_2 (Shard 4)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_43', 'candidate_id': 'candidate_1', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_43', 'candidate_id': 'candidate_1', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_43 for candidate_1 (Shard 0)
+INFO:blockchain.node:Node node_0 mined block 4
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 5
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_4 mined block 4
+INFO:blockchain.node:Node node_5 mined block 4
+INFO:blockchain.node:Node node_6 mined block 4
+INFO:blockchain.node:Node node_7 mined block 4
+INFO:blockchain.node:Node node_8 mined block 4
+INFO:blockchain.node:Node node_9 mined block 5
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_44', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_44', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_44', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_44', 'candidate_id': 'candidate_1', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_44 for candidate_1 (Shard 4)
+INFO:__main__:Vote cast by voter_45 for candidate_1 (Shard 2)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_46', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_46', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_46 for candidate_2 (Shard 0)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_47', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_47', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_47', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_47', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_47 for candidate_3 (Shard 4)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_48', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_48', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_48 for candidate_3 (Shard 3)
+INFO:__main__:Vote cast by voter_49 for candidate_2 (Shard 2)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_50', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_50', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_50 for candidate_1 (Shard 1)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.786 -> 0.836
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.645 -> 0.739
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.558 -> 0.509
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.601 -> 0.421
+INFO:blockchain.reputation:Node node_4 reputation updated: 0.513 -> 0.581
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.551 -> 0.633
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.690 -> 0.726
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.478 -> 0.390
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.936 -> 0.955
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.597 -> 0.613
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.640
+INFO:__main__:Trusted Nodes: 4/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.836
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.34
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.739
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.82
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 1
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.509
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.35
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.421
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.13
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.581
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.00
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.633
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.05
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.726
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.51
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.390
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.67
+INFO:__main__:  Voting Mismatch: 0.04
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.955
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.88
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.613
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.41
+INFO:__main__:  Voting Mismatch: 0.09
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 50 votes...
+INFO:__main__:Vote cast by voter_51 for candidate_3 (Shard 2)
+INFO:__main__:Vote cast by voter_52 for candidate_1 (Shard 2)
+INFO:blockchain.node:Node node_0 mined block 5
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 6
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 mined block 5
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 5
+INFO:blockchain.node:Node node_4 mined block 5
+INFO:blockchain.node:Node node_5 mined block 5
+INFO:blockchain.node:Node node_6 mined block 5
+INFO:blockchain.node:Node node_7 mined block 5
+INFO:blockchain.node:Node node_8 mined block 5
+INFO:blockchain.node:Node node_9 mined block 6
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_53', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_53', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_53 for candidate_1 (Shard 3)
+INFO:__main__:Vote cast by voter_54 for candidate_3 (Shard 2)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_55', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_55', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_55 for candidate_2 (Shard 0)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_56', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_56', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_56 for candidate_3 (Shard 1)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_57', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_57', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_57 for candidate_3 (Shard 0)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_58', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_58', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_58 for candidate_2 (Shard 3)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_59', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_59', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_59 for candidate_1 (Shard 1)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_60', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_60', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_60', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_60', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_60 for candidate_3 (Shard 4)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.836 -> 0.817
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.739 -> 0.817
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.509 -> 0.641
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.421 -> 0.492
+INFO:blockchain.reputation:Node node_4 reputation updated: 0.581 -> 0.406
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.633 -> 0.646
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.726 -> 0.771
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.390 -> 0.483
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.955 -> 0.906
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.613 -> 0.435
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.641
+INFO:__main__:Trusted Nodes: 4/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.817
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.99
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.817
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.20
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.641
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.15
+INFO:__main__:  Voting Mismatch: 0.05
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.492
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.73
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.406
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.30
+INFO:__main__:  Voting Mismatch: 0.05
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.646
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.70
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.771
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.52
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.483
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.38
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.906
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.93
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 1
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.435
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.47
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 60 votes...
+INFO:__main__:Vote cast by voter_61 for candidate_1 (Shard 2)
+INFO:blockchain.node:Node node_0 mined block 6
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 7
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 mined block 6
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 6
+INFO:blockchain.node:Node node_4 mined block 6
+INFO:blockchain.node:Node node_5 mined block 6
+INFO:blockchain.node:Node node_6 mined block 6
+INFO:blockchain.node:Node node_7 mined block 6
+INFO:blockchain.node:Node node_8 mined block 6
+INFO:blockchain.node:Node node_9 mined block 7
+INFO:__main__:Vote cast by voter_62 for candidate_2 (Shard 2)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_63', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_63', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_63 for candidate_3 (Shard 1)
+INFO:blockchain.node:Node node_1 entering attack phase
+INFO:blockchain.node:Node node_2 entering attack phase
+INFO:blockchain.node:Node node_2 mined block 7
+INFO:blockchain.node:Node node_2 entering attack phase
+INFO:blockchain.node:Node node_3 mined block 7
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_64', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_64', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_64 for candidate_3 (Shard 3)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_65', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_65', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_65 for candidate_3 (Shard 0)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 8
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_5 mined block 7
+INFO:blockchain.node:Node node_6 mined block 7
+INFO:blockchain.node:Node node_9 mined block 8
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_66', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_66', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_66 for candidate_1 (Shard 1)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_67', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_67', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_67 for candidate_3 (Shard 1)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_68', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_68', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_68', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_68', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_68 for candidate_3 (Shard 4)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_69', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_69', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_69 for candidate_1 (Shard 1)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_70', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_70', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_70 for candidate_1 (Shard 3)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.817 -> 0.572
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.817 -> 0.736
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.641 -> 0.723
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.492 -> 0.592
+INFO:blockchain.reputation:Node node_4 reputation updated: 0.406 -> 0.458
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.646 -> 0.746
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.771 -> 0.584
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.483 -> 0.638
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.906 -> 0.829
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.435 -> 0.476
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.635
+INFO:__main__:Trusted Nodes: 4/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.572
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.03
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.736
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.48
+INFO:__main__:  Voting Mismatch: 0.09
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.723
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.31
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.592
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.15
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.458
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.08
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.746
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.12
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.584
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.66
+INFO:__main__:  Voting Mismatch: 0.00
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.638
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 3.13
+INFO:__main__:  Voting Mismatch: 0.05
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.829
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.60
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.476
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 0.99
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 70 votes...
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_71', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_71', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_71 for candidate_1 (Shard 3)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_72', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_72', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_72 for candidate_3 (Shard 3)
+INFO:__main__:Vote cast by voter_73 for candidate_3 (Shard 2)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_74', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_74', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_74 for candidate_2 (Shard 0)
+INFO:blockchain.node:Node node_0 mined block 7
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 9
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 mined block 8
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 8
+INFO:blockchain.node:Node node_4 mined block 7
+INFO:blockchain.node:Node node_5 mined block 8
+INFO:blockchain.node:Node node_6 mined block 8
+INFO:blockchain.node:Node node_7 mined block 7
+INFO:blockchain.node:Node node_8 mined block 7
+INFO:blockchain.node:Node node_9 mined block 9
+INFO:__main__:Vote cast by voter_75 for candidate_1 (Shard 2)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_76', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_76', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_76 for candidate_1 (Shard 1)
+INFO:__main__:Vote cast by voter_77 for candidate_1 (Shard 2)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_78', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_78', 'candidate_id': 'candidate_2', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_78 for candidate_2 (Shard 0)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_79', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_79', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_79 for candidate_2 (Shard 3)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_80', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_80', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_80', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_80', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_80 for candidate_2 (Shard 4)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.572 -> 0.559
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.736 -> 0.605
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.723 -> 0.614
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.592 -> 0.664
+INFO:blockchain.reputation:Node node_4 reputation updated: 0.458 -> 0.606
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.746 -> 0.822
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.584 -> 0.599
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.638 -> 0.447
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.829 -> 0.624
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.476 -> 0.543
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.608
+INFO:__main__:Trusted Nodes: 1/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.559
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.92
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.605
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.19
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 1
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.614
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.58
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.664
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.09
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.606
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.00
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.822
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.63
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.599
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.93
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 1
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.447
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.54
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.624
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.91
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.543
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.49
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 80 votes...
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_81', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_81', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_81 for candidate_3 (Shard 1)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_82', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_82', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_82', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_82', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_82 for candidate_3 (Shard 4)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_83', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_83', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_83', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_83', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_83 for candidate_3 (Shard 4)
+INFO:blockchain.node:Node node_0 mined block 8
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 10
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 mined block 9
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 9
+INFO:blockchain.node:Node node_4 mined block 8
+INFO:blockchain.node:Node node_5 mined block 9
+INFO:blockchain.node:Node node_6 mined block 9
+INFO:blockchain.node:Node node_7 mined block 8
+INFO:blockchain.node:Node node_8 mined block 8
+INFO:blockchain.node:Node node_9 mined block 10
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_84', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_84', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_84', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_84', 'candidate_id': 'candidate_3', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_84 for candidate_3 (Shard 4)
+INFO:__main__:Vote cast by voter_85 for candidate_3 (Shard 2)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_86', 'candidate_id': 'candidate_1', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_86', 'candidate_id': 'candidate_1', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_86 for candidate_1 (Shard 0)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_87', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_87', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_87 for candidate_1 (Shard 3)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_88', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_88', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_88 for candidate_3 (Shard 3)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_89', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_89', 'candidate_id': 'candidate_3', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_89 for candidate_3 (Shard 3)
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_90', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_90', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_90', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_90', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_90 for candidate_2 (Shard 4)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.559 -> 0.533
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.605 -> 0.723
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.614 -> 0.535
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.664 -> 0.720
+INFO:blockchain.reputation:Node node_4 reputation updated: 0.606 -> 0.716
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.822 -> 0.807
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.599 -> 0.622
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.447 -> 0.554
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.624 -> 0.437
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.543 -> 0.597
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.624
+INFO:__main__:Trusted Nodes: 4/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.533
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.07
+INFO:__main__:  Voting Mismatch: 0.05
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.723
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.69
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.535
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.33
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.720
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.12
+INFO:__main__:  Voting Mismatch: 0.06
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.716
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.42
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.807
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.94
+INFO:__main__:  Voting Mismatch: 0.09
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.622
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.25
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.554
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.95
+INFO:__main__:  Voting Mismatch: 0.00
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.437
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.91
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.597
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.12
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 90 votes...
+INFO:blockchain.node:Node node_0 added transaction: {'type': 'vote', 'voter_id': 'voter_91', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_4 added transaction: {'type': 'vote', 'voter_id': 'voter_91', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_7 added transaction: {'type': 'vote', 'voter_id': 'voter_91', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:blockchain.node:Node node_8 added transaction: {'type': 'vote', 'voter_id': 'voter_91', 'candidate_id': 'candidate_2', 'shard_id': 4}
+INFO:__main__:Vote cast by voter_91 for candidate_2 (Shard 4)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_92', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_92', 'candidate_id': 'candidate_1', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_92 for candidate_1 (Shard 1)
+INFO:blockchain.node:Node node_0 mined block 9
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 11
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 mined block 10
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 10
+INFO:blockchain.node:Node node_4 mined block 9
+INFO:blockchain.node:Node node_5 mined block 10
+INFO:blockchain.node:Node node_6 mined block 10
+INFO:blockchain.node:Node node_7 mined block 9
+INFO:blockchain.node:Node node_8 mined block 9
+INFO:blockchain.node:Node node_9 mined block 11
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_93', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_93', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_93 for candidate_3 (Shard 1)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_94', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_94', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_94 for candidate_3 (Shard 1)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_95', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_95', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_95 for candidate_3 (Shard 0)
+INFO:blockchain.node:Node node_5 added transaction: {'type': 'vote', 'voter_id': 'voter_96', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:blockchain.node:Node node_6 added transaction: {'type': 'vote', 'voter_id': 'voter_96', 'candidate_id': 'candidate_3', 'shard_id': 0}
+INFO:__main__:Vote cast by voter_96 for candidate_3 (Shard 0)
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 added transaction: {'type': 'vote', 'voter_id': 'voter_97', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:blockchain.node:Node node_3 added transaction: {'type': 'vote', 'voter_id': 'voter_97', 'candidate_id': 'candidate_3', 'shard_id': 1}
+INFO:__main__:Vote cast by voter_97 for candidate_3 (Shard 1)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_98', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_98', 'candidate_id': 'candidate_2', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_98 for candidate_2 (Shard 3)
+INFO:__main__:Vote cast by voter_99 for candidate_1 (Shard 2)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 added transaction: {'type': 'vote', 'voter_id': 'voter_100', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:blockchain.node:Node node_9 added transaction: {'type': 'vote', 'voter_id': 'voter_100', 'candidate_id': 'candidate_1', 'shard_id': 3}
+INFO:__main__:Vote cast by voter_100 for candidate_1 (Shard 3)
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.reputation:Node node_0 reputation updated: 0.533 -> 0.373
+INFO:blockchain.reputation:Node node_1 reputation updated: 0.723 -> 0.608
+INFO:blockchain.reputation:Node node_2 reputation updated: 0.535 -> 0.536
+INFO:blockchain.reputation:Node node_3 reputation updated: 0.720 -> 0.804
+INFO:blockchain.reputation:Node node_4 reputation updated: 0.716 -> 0.698
+INFO:blockchain.reputation:Node node_5 reputation updated: 0.807 -> 0.676
+INFO:blockchain.reputation:Node node_6 reputation updated: 0.622 -> 0.498
+INFO:blockchain.reputation:Node node_7 reputation updated: 0.554 -> 0.453
+INFO:blockchain.reputation:Node node_8 reputation updated: 0.437 -> 0.599
+INFO:blockchain.reputation:Node node_9 reputation updated: 0.597 -> 0.638
+INFO:__main__:
+Reputation Statistics:
+INFO:__main__:Mean Reputation: 0.588
+INFO:__main__:Trusted Nodes: 1/10
+INFO:__main__:
+Detailed Node States:
+INFO:__main__:Node node_0:
+INFO:__main__:  Reputation: 0.373
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.25
+INFO:__main__:  Voting Mismatch: 0.09
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:__main__:Node node_1:
+INFO:__main__:  Reputation: 0.608
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.74
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 0
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:__main__:Node node_2:
+INFO:__main__:  Reputation: 0.536
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.86
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_3:
+INFO:__main__:  Reputation: 0.804
+INFO:__main__:  Is Trusted: True
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.52
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 1
+INFO:__main__:Node node_4:
+INFO:__main__:  Reputation: 0.698
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.58
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_5:
+INFO:__main__:  Reputation: 0.676
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 1.62
+INFO:__main__:  Voting Mismatch: 0.03
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_6:
+INFO:__main__:  Reputation: 0.498
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.72
+INFO:__main__:  Voting Mismatch: 0.01
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_7:
+INFO:__main__:  Reputation: 0.453
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.27
+INFO:__main__:  Voting Mismatch: 0.02
+INFO:__main__:  Penalties: 1
+INFO:__main__:Node node_8:
+INFO:__main__:  Reputation: 0.599
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.43
+INFO:__main__:  Voting Mismatch: 0.07
+INFO:__main__:  Penalties: 0
+INFO:__main__:Node node_9:
+INFO:__main__:  Reputation: 0.638
+INFO:__main__:  Is Trusted: False
+INFO:__main__:  Attack Phase: False
+INFO:__main__:  Block Delay: 2.48
+INFO:__main__:  Voting Mismatch: 0.08
+INFO:__main__:  Penalties: 0
+INFO:__main__:
+Processed 100 votes...
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_1 mined block 12
+INFO:blockchain.node:Node node_1 in honest phase
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_2 mined block 11
+INFO:blockchain.node:Node node_2 in honest phase
+INFO:blockchain.node:Node node_3 mined block 11
+INFO:blockchain.node:Node node_5 mined block 11
+INFO:blockchain.node:Node node_6 mined block 11
+INFO:blockchain.node:Node node_9 mined block 12
+INFO:__main__:
+=== Final Simulation State ===
+INFO:__main__:
+Shard Statistics:
+INFO:__main__:Shard 0:
+INFO:__main__:  Number of nodes: 2
+INFO:__main__:  Nodes: node_5, node_6
+INFO:__main__:Shard 1:
+INFO:__main__:  Number of nodes: 2
+INFO:__main__:  Nodes: node_2, node_3
+INFO:__main__:Shard 2:
+INFO:__main__:  Number of nodes: 0
+INFO:__main__:  Nodes: 
+INFO:__main__:Shard 3:
+INFO:__main__:  Number of nodes: 2
+INFO:__main__:  Nodes: node_1, node_9
+INFO:__main__:Shard 4:
+INFO:__main__:  Number of nodes: 4
+INFO:__main__:  Nodes: node_0, node_4, node_7, node_8
+INFO:__main__:
+Blockchain State:
+INFO:__main__:
+Node node_0 (Shard 4):
+INFO:__main__:  Chain length: 10
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 3
+INFO:__main__:  Is malicious: False
+INFO:__main__:  Reputation: 0.373
+INFO:__main__:  Is trusted: False
+INFO:__main__:
+Node node_1 (Shard 3):
+INFO:__main__:  Chain length: 13
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 1
+INFO:__main__:  Is malicious: True
+INFO:__main__:  Reputation: 0.608
+INFO:__main__:  Is trusted: False
+INFO:__main__:
+Node node_2 (Shard 1):
+INFO:__main__:  Chain length: 12
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 1
+INFO:__main__:  Is malicious: True
+INFO:__main__:  Reputation: 0.536
+INFO:__main__:  Is trusted: False
+INFO:__main__:
+Node node_3 (Shard 1):
+INFO:__main__:  Chain length: 12
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 1
+INFO:__main__:  Is malicious: False
+INFO:__main__:  Reputation: 0.804
+INFO:__main__:  Is trusted: True
+INFO:__main__:
+Node node_4 (Shard 4):
+INFO:__main__:  Chain length: 10
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 3
+INFO:__main__:  Is malicious: False
+INFO:__main__:  Reputation: 0.698
+INFO:__main__:  Is trusted: False
+INFO:__main__:
+Node node_5 (Shard 0):
+INFO:__main__:  Chain length: 12
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 1
+INFO:__main__:  Is malicious: False
+INFO:__main__:  Reputation: 0.676
+INFO:__main__:  Is trusted: False
+INFO:__main__:
+Node node_6 (Shard 0):
+INFO:__main__:  Chain length: 12
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 1
+INFO:__main__:  Is malicious: False
+INFO:__main__:  Reputation: 0.498
+INFO:__main__:  Is trusted: False
+INFO:__main__:
+Node node_7 (Shard 4):
+INFO:__main__:  Chain length: 10
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 3
+INFO:__main__:  Is malicious: False
+INFO:__main__:  Reputation: 0.453
+INFO:__main__:  Is trusted: False
+INFO:__main__:
+Node node_8 (Shard 4):
+INFO:__main__:  Chain length: 10
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 3
+INFO:__main__:  Is malicious: False
+INFO:__main__:  Reputation: 0.599
+INFO:__main__:  Is trusted: False
+INFO:__main__:
+Node node_9 (Shard 3):
+INFO:__main__:  Chain length: 13
+INFO:__main__:  Pending transactions: 0
+INFO:__main__:  Number of peers: 1
+INFO:__main__:  Is malicious: False
+INFO:__main__:  Reputation: 0.638
+INFO:__main__:  Is trusted: False
+INFO:blockchain.node:Node node_0 stopped
+INFO:blockchain.node:Node node_1 stopped
+INFO:blockchain.node:Node node_2 stopped
+INFO:blockchain.node:Node node_3 stopped
+INFO:blockchain.node:Node node_4 stopped
+INFO:blockchain.node:Node node_5 stopped
+INFO:blockchain.node:Node node_6 stopped
+INFO:blockchain.node:Node node_7 stopped
+INFO:blockchain.node:Node node_8 stopped
+INFO:blockchain.node:Node node_9 stopped
