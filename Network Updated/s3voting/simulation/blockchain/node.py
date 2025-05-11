@@ -94,8 +94,10 @@ class BlockchainNode:
             
         current_time = time.time()
         
-        # Attack pattern selection based on node ID
-        if self.node_id == "node_1":
+        # Get attack pattern from simulation parameters
+        attack_pattern = getattr(self, 'attack_pattern', 'On-Off')
+        
+        if attack_pattern == "On-Off":
             # On-off attack pattern
             cycle_duration = 30
             attack_duration = 10
@@ -111,46 +113,37 @@ class BlockchainNode:
                     "attack_type": "on_off"
                 }
                 
-        elif self.node_id == "node_2":
-            # Gradual degradation attack
-            degradation_factor = min(1.0, (current_time - self.start_time) / 300)  # 5 minutes
+        elif attack_pattern == "Persistent":
+            # Persistent attack
             return {
-                "block_delay": np.random.normal(2.0 + degradation_factor * 10, 0.5),
-                "voting_mismatch": random.uniform(0.1, 0.1 + degradation_factor * 0.8),
-                "penalties": np.random.poisson(0.1 + degradation_factor),
+                "block_delay": np.random.normal(20.0, 5.0),
+                "voting_mismatch": random.uniform(0.8, 1.0),
+                "penalties": np.random.poisson(5),
                 "is_attack_phase": True,
-                "attack_type": "gradual"
+                "attack_type": "persistent"
             }
             
-        elif self.node_id == "node_3":
-            # Random burst attack
-            if random.random() < 0.1:  # 10% chance of burst
+        elif attack_pattern == "Sporadic":
+            # Sporadic attack
+            if random.random() < 0.2:  # 20% chance of attack
                 return {
                     "block_delay": np.random.normal(20.0, 5.0),
                     "voting_mismatch": random.uniform(0.8, 1.0),
                     "penalties": np.random.poisson(5),
                     "is_attack_phase": True,
-                    "attack_type": "burst"
+                    "attack_type": "sporadic"
                 }
                 
-        elif self.node_id == "node_4":
-            # Adaptive attack - changes behavior based on reputation
-            current_rep = self.reputation_system.get_reputation(self.node_id)
-            if current_rep > 0.7:
+        elif attack_pattern == "Targeted":
+            # Targeted attack - focuses on specific shard
+            target_shard = getattr(self, 'target_shard', 0)
+            if self.shard_id == target_shard:
                 return {
                     "block_delay": np.random.normal(20.0, 5.0),
                     "voting_mismatch": random.uniform(0.8, 1.0),
                     "penalties": np.random.poisson(5),
                     "is_attack_phase": True,
-                    "attack_type": "adaptive"
-                }
-            else:
-                return {
-                    "block_delay": np.random.normal(2.0, 0.5),
-                    "voting_mismatch": random.uniform(0.0, 0.1),
-                    "penalties": np.random.poisson(0.1),
-                    "is_attack_phase": False,
-                    "attack_type": "adaptive"
+                    "attack_type": "targeted"
                 }
                 
         # Default honest behavior
@@ -240,7 +233,7 @@ class BlockchainNode:
         while not self.stop_event.is_set():
             try:
                 # Mine a new block
-                if self.pending_transactions:
+                if self.pending_transactions:   
                     behavior = self._simulate_malicious_behavior()
                     await asyncio.sleep(behavior["block_delay"])
                     await self.mine_block()
